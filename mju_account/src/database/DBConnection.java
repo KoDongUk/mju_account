@@ -4,28 +4,28 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-public class DBConnection extends Properties
+public class DBConnection 
 {
-	private final static String JDCB_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private final static String DB_URL = "jdbc:mysql://14.38.252.76/account?characterEncoding=UTF-8&serverTimezone=UTC";//mysqlÀÇ ÁÖ¼Ò
-	private final static String USER_NAME = "kohd";//°íµ¿¿í´Ô ¾ÆÀÌµğ »ç¿ë
+	private final static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+	private final static String DB_URL = "jdbc:mysql://34.64.123.148:3306/account?characterEncoding=UTF-8&serverTimezone=UTC";//mysqlå ì™ì˜™ å ìŒì‡½ì˜™
+	private final static String USER_NAME = "kmg";//å ì™ì˜™å ì™ì˜™å ï¿½ å ì™ì˜™å ì‹±ë“¸ì˜™ å ì™ì˜™å ï¿½
 	private final static String PASSWORD = "0001";
 	private static Connection con = null;
-	private DBConnection() {}//Á¢±Ù¸øÇÏ°Ô ¸·¾Æ³õÀ½
+	private DBConnection() {}//å ì™ì˜™å ìŒ•ëªŒì˜™å ì‹¹ê³¤ì˜™ å ì™ì˜™å ì‹£ë†‚ì˜™å ì™ì˜™
 	public static Connection getInstance()
 	{
 		if(con==null)
 		{
 			try 
 			{
-				Class.forName(JDCB_DRIVER);//critical 
+				Class.forName(JDBC_DRIVER);//critical 
 				con = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
-				System.out.println("///////DB¿¬°áµÊ//////");
+				System.out.println("DB Connected");
 			}
 			catch(Exception e)
 			{
 				e.printStackTrace();
-				System.out.println("¿¬°á¿À·ù");
+				System.out.println("DB Connect Error");
 			}
 		}
 		return con;
