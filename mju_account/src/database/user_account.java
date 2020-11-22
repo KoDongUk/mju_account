@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 
 public class user_account {
 	private Connection con = null;
 	private PreparedStatement ps = null;
+	protected static Statement st = null;
 	private ResultSet rs = null;
 	private user_info ui;
 	/*id,income or expenditure,name,category,date,accountID*/
@@ -222,15 +224,8 @@ public class user_account {
 	public int getMonthExpenditureSum(int month) throws SQLException {
 		String monthS = Integer.toString(month);
 		
-		String query = "SELECT sum(expenditure) FROM account WHERE id = ? AND date like '2012-0"+monthS+"%'";
-		System.out.println("먹냐?");
-		ps = con.prepareStatement(query);
-		ps.setInt(1, ui.getId());//사용자 아이디
-		//ps.setString(2, "2021-"+ monthS + "%");//이름
-		ps.execute();
+		String query = "SELECT sum(expenditure) FROM account WHERE id = ? AND date like '2012-"+monthS+"%'";
 		
-		System.out.println(query);
-		
-		return Integer.getInteger(query);
+		return 0;
 	}
 }
