@@ -24,7 +24,6 @@ public class popup {
 	{
 		handler = new fxmlHandler(location);
 		controller = handler.getController();
-		//((closable)controller).setStage(window);
 		window.setScene(handler.getScene());
 	}
 	public void setSize(int width,int height)

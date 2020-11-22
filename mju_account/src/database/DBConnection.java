@@ -11,6 +11,8 @@ public class DBConnection
 	private final static String USER_NAME = "kmg";//占쏙옙占쏙옙占� 占쏙옙占싱듸옙 占쏙옙占�
 	private final static String PASSWORD = "0001";
 	private static Connection con = null;
+	protected static Statement st = null;
+	protected static ResultSet rs;
 	private DBConnection() {}//占쏙옙占쌕몌옙占싹곤옙 占쏙옙占싣놂옙占쏙옙
 	public static Connection getInstance()
 	{
@@ -20,8 +22,10 @@ public class DBConnection
 			{
 				Class.forName(JDBC_DRIVER);//critical 
 				con = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
+				st = con.createStatement();
 				System.out.println("DB Connected");
 			}
+			
 			catch(Exception e)
 			{
 				e.printStackTrace();

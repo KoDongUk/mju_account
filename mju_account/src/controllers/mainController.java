@@ -209,7 +209,7 @@ public class mainController implements Initializable
 	{
 		System.out.println("financial infos");
 		accountPopup = new popup("금융정보");
-		accountPopup.setLocation("/view/infoPopup.fxml");
+		accountPopup.setLocation("/view/inforPopup.fxml");
 		accountPopup.show();
 	}
 }
